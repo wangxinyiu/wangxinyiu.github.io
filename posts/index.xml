@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Xinyi Wang</title>
+    <link>https://wangxinyiu.github.io/posts/</link>
+    <description>Recent content in Posts on Xinyi Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Jan 2024 19:07:37 -0800</lastBuildDate>
+    <atom:link href="https://wangxinyiu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>my first post</title>
+      <link>https://wangxinyiu.github.io/posts/my-first-post/</link>
+      <pubDate>Wed, 24 Jan 2024 19:07:37 -0800</pubDate>
+      <guid>https://wangxinyiu.github.io/posts/my-first-post/</guid>
+      <description> test1 test2 test3 test1 Here is my test1 test2 Here is my test2 asdsadasdas dasasdas asdasdas asdas test3 dasdasd asd sasdas asdasda sadasd </description>
+    </item>
+  </channel>
+</rss>
