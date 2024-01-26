@@ -17,26 +17,26 @@
     
 
     
-    <title>💗刷题笔记</title>
+    <title>StayBooking - An online stay rental application</title>
     <meta name="description" content="There is more to come!">
     <meta name="keywords" content='blog, gokarna, hugo'>
 
-    <meta property="og:url" content="https://wangxinyiu.github.io/posts/my-first-post/">
+    <meta property="og:url" content="https://wangxinyiu.github.io/projects/staybooking/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="💗刷题笔记">
+    <meta property="og:title" content="StayBooking - An online stay rental application">
     <meta property="og:description" content="There is more to come!">
     <meta property="og:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
     <meta property="og:image:secure_url" content="https://wangxinyiu.github.io/images/uci_1.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="💗刷题笔记">
+    <meta name="twitter:title" content="StayBooking - An online stay rental application">
     <meta name="twitter:description" content="There is more to come!">
-    <meta property="twitter:domain" content="https://wangxinyiu.github.io/posts/my-first-post/">
-    <meta property="twitter:url" content="https://wangxinyiu.github.io/posts/my-first-post/">
+    <meta property="twitter:domain" content="https://wangxinyiu.github.io/projects/staybooking/">
+    <meta property="twitter:url" content="https://wangxinyiu.github.io/projects/staybooking/">
     <meta name="twitter:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
 
     
-    <link rel="canonical" href="https://wangxinyiu.github.io/posts/my-first-post/" />
+    <link rel="canonical" href="https://wangxinyiu.github.io/projects/staybooking/" />
 
     
     <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
@@ -165,74 +165,39 @@
     </nav>
 </header>
 <main id="content">
-    <div class="post container">
-    <div class="post-header-section">
-        <h1>💗刷题笔记</h1>
-        <small role="doc-subtitle"></small>
-        <p class="post-date">January 24, 2024
-        
-        </p>
+    
 
-        <ul class="post-tags">
-        
-        </ul>
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>StayBooking - An online stay rental application</h1>
     </div>
 
     <div class="post-content">
         <p>
-            <p><a href="/posts/implementdatastructure/">Manual implementation of data structures</a></p>
+            <h2 id="what-i-did">What I did</h2>
+<p><strong>Deomo: <a href="https://recordit.co/cXdWcj0ahV">https://recordit.co/cXdWcj0ahV</a></strong></p>
+<ul>
+<li>Designed and built a single-page web application using <strong>React</strong>. Bootstrap the development with mature component library <strong>Ant Design</strong>.</li>
+<li>Implemented the backend services based on <strong>Spring Boot</strong> to support stay upload, delete, search, and reserve functionality.</li>
+<li>Used <strong>MySQL</strong> to store user-generated data, e.g. stay information and reservation history, and utilized <strong>Google Cloud Storage</strong> to store media files for uploaded stays.</li>
+<li>Created <strong>geo index</strong> by <strong>Elasticsearch</strong> to support geo-based stay search based on user’s selected locations.</li>
+<li>Implemented <strong>token-based</strong> server-side user authentication based on the <strong>Spring Security framework</strong>.</li>
+<li>Deployed the backend service to <strong>Google App Engine</strong> for better scalability and reliability.</li>
+</ul>
+<h3 id="backend-structure">Backend Structure</h3>
+<p><img src="/images/staybooking1.jpg" alt="backend_structure"></p>
+<h3 id="data-model">Data Model</h3>
+<p><img src="/images/staybooking2.png" alt="backend_structure"></p>
+<h3 id="compelete-code">Compelete Code</h3>
+<p><a href="https://github.com/wangxinyiu/staybooking">https://github.com/wangxinyiu/staybooking</a></p>
 
         </p>
-        
     </div>
-
-    <div class="prev-next">
-        
-    </div>
-
-    
-    
-    <svg id="btt-button" class="arrow-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" onclick="topFunction()" title="Go to top">
-        
-        <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
-    </svg>
-    
-    <script>
-        let backToTopButton = document.getElementById("btt-button");
-
-        window.onscroll = function() {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        }
-
-        function topFunction() {
-            smoothScrollToTop();
-        }
-
-        function smoothScrollToTop() {
-            const scrollToTop = () => {
-                const c = document.documentElement.scrollTop || document.body.scrollTop;
-                if (c > 0) {
-                    window.requestAnimationFrame(scrollToTop);
-                    window.scrollTo(0, c - c / 8);
-                }
-            };
-            scrollToTop();
-        }
-    </script>
-    
 </div>
 
 
 
-    
 
         </main><footer class="footer">
     

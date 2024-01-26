@@ -8,11 +8,25 @@
     <language>en</language>
     <atom:link href="https://wangxinyiu.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hydra</title>
-      <link>https://wangxinyiu.github.io/projects/hydra/</link>
+      <title>A Server Migration to AWS (Internship at Amazon)</title>
+      <link>https://wangxinyiu.github.io/projects/amazonintern/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://wangxinyiu.github.io/projects/hydra/</guid>
-      <description>Motto Cut off one head and two will take their place</description>
+      <guid>https://wangxinyiu.github.io/projects/amazonintern/</guid>
+      <description>What I did Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly. Decoupled the original code into smaller units and transitioned from Python to Java. Using the code-driven AWS Cloud Development Kit (CDK) approach, we configured various AWS services including Lambda functions, S3, VPC, among others.</description>
+    </item>
+    <item>
+      <title>PapyrusAI - An tool for use in higher education courses</title>
+      <link>https://wangxinyiu.github.io/projects/papyrusai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://wangxinyiu.github.io/projects/papyrusai/</guid>
+      <description>About PapyrusAI was developed by the Digital Learning Lab at the University of California, Irvine, in partnership with the Samueli School of Engineering, as part of an NSF grant (#23152984).&#xA;While our initial goal is to develop this tool for use in higher education courses, we received a Proof of Product grant from UCI’s Beall Applied Innovation Center to adapt the tool for secondary school and determine the marketability and feasibility of commercializing PapyrusAI.</description>
+    </item>
+    <item>
+      <title>StayBooking - An online stay rental application</title>
+      <link>https://wangxinyiu.github.io/projects/staybooking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://wangxinyiu.github.io/projects/staybooking/</guid>
+      <description>What I did Deomo: https://recordit.co/cXdWcj0ahV&#xA;Designed and built a single-page web application using React. Bootstrap the development with mature component library Ant Design. Implemented the backend services based on Spring Boot to support stay upload, delete, search, and reserve functionality. Used MySQL to store user-generated data, e.g. stay information and reservation history, and utilized Google Cloud Storage to store media files for uploaded stays. Created geo index by Elasticsearch to support geo-based stay search based on user’s selected locations.</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Manual implementation of data structures</title>
+    <meta name="description" content="There is more to come!">
+    <meta name="keywords" content='blog, gokarna, hugo'>
+
+    <meta property="og:url" content="https://wangxinyiu.github.io/posts/implementdatastructure/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manual implementation of data structures">
+    <meta property="og:description" content="There is more to come!">
+    <meta property="og:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
+    <meta property="og:image:secure_url" content="https://wangxinyiu.github.io/images/uci_1.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manual implementation of data structures">
+    <meta name="twitter:description" content="There is more to come!">
+    <meta property="twitter:domain" content="https://wangxinyiu.github.io/posts/implementdatastructure/">
+    <meta property="twitter:url" content="https://wangxinyiu.github.io/posts/implementdatastructure/">
+    <meta name="twitter:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
+
+    
+    <link rel="canonical" href="https://wangxinyiu.github.io/posts/implementdatastructure/" />
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.c60dbb422ed053b0761160e3a3f08b9af2060f00adc8f12c0ff21a8cf55b3d8e.js" integrity="sha256-xg27Qi7QU7B2EWDjo/CLmvIGDwCtyPEsD/IajPVbPY4="></script>
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+      });
+    </script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://wangxinyiu.github.io/">
+                <img src='/images/uci_1.jpg' alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://wangxinyiu.github.io/">Xinyi Wang</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/posts/"><span data-feather='book'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/projects/"><span data-feather='code'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/tags/"><span data-feather='tag'></span> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/posts/"><span data-feather='book'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/projects/"><span data-feather='code'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/tags/"><span data-feather='tag'></span> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>Manual implementation of data structures</h1>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <ul>
+<li><a href="#implementation-of-stack">Implementation of Stack</a>
+<ul>
+<li><a href="#using-linked-list">Using Linked List</a></li>
+<li><a href="#using-array">Using Array</a></li>
+</ul>
+</li>
+<li><a href="#implementation-of-queue">Implementation of Queue</a>
+<ul>
+<li><a href="#using-linked-list-1">Using Linked List</a></li>
+<li><a href="#using-array-1">Using Array</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="implementation-of-stack">Implementation of Stack</h2>
+<h3 id="using-linked-list">Using Linked List</h3>
+<ul>
+<li>Should we use Linked List or Double-Linked List?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListNode</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> value;
+</span></span><span style="display:flex;"><span>	ListNode next;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ListNode prev;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ListNode</span> (<span style="color:#66d9ef">int</span> value) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> value;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Stack</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// push, pop, peek</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 必须有一个head</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> ListNode head;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> size;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// constructor -&gt; 最好是把 initialization 写到 constructor 里面。</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Stack</span> () {
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		size <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 返回值是boolean 因为 如果超过size 需要返回false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 但是是有</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">push</span> (<span style="color:#66d9ef">int</span> value) {
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// I assume the linked list won&#39;t be full.</span>
+</span></span><span style="display:flex;"><span>		ListNode newHead <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode (value);
+</span></span><span style="display:flex;"><span>		NewHead.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> newHead;
+</span></span><span style="display:flex;"><span>		size<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 用Integer是因为如果是null的话希望返回null</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">pop</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (isEmpty()) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		ListNode res <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// 断开那个节点</span>
+</span></span><span style="display:flex;"><span>		res.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		size<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> res.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">peek</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (isEmpty()) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// 会自动 boxing 成 Integer</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> head.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isEmpty</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size <span style="color:#f92672">==</span> 0;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="using-array">Using Array</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BoundedStack</span> () {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BoundedStack</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// pop push peek</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> array;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 因为stack是头进去头出 所以我们需要一个 pointer 去记录我现在存到哪了</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 我第一个有意义的数 -&gt; 一定要想清楚head的意义</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> head;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// constructor -&gt; 因为是 bounded 的，所以在初始化的时候需要规定 capacity.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">BoundedStack</span> (<span style="color:#66d9ef">int</span> cap) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>cap<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">push</span> (<span style="color:#66d9ef">int</span> value) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (isFull()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        array<span style="color:#f92672">[</span>head<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> value;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">peek</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (head <span style="color:#f92672">==</span> 0) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> array<span style="color:#f92672">[</span>head<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">pop</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (head <span style="color:#f92672">==</span> 0) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        head<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>        Integer res <span style="color:#f92672">=</span> array<span style="color:#f92672">[</span>head<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> head;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isEmpty</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> size() <span style="color:#f92672">==</span> 0;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isFull</span>(){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> size() <span style="color:#f92672">==</span> array.<span style="color:#a6e22e">length</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="implementation-of-queue">Implementation of Queue</h2>
+<h3 id="using-linked-list-1">Using Linked List</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListNode</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> value;
+</span></span><span style="display:flex;"><span>	ListNode next;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ListNode prev;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ListNode</span> (<span style="color:#66d9ef">int</span> value) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> value;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// offer, poll, peek</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Queue</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 设置成 private</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// member variable</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> ListNode head;
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// stack 不需要 tail 是因为头进头出</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 但是 queue 是尾进头出 所以需要一个 tail </span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> ListNode tail;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> size;
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// initialize the data in Constructor</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Queue</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">offer</span> (<span style="color:#66d9ef">int</span> value) {
+</span></span><span style="display:flex;"><span>		ListNode node <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ListNode(value);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (head <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>			tail <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>			head <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>		} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>			tail.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>			tail <span style="color:#f92672">=</span> tail.<span style="color:#a6e22e">next</span>;		
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		size<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">peek</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> head <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">null</span> : head.<span style="color:#a6e22e">value</span>;	
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">poll</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (isEmpty()) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		ListNode node <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>		node.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>		size<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> node.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isEmpty</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size <span style="color:#f92672">==</span> 0;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="using-array-1">Using Array</h3>
+<ul>
+<li>环形链表Cyclic</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BoundedQueue</span> () {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// offer pop peek size isEmpty</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> array;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> head; <span style="color:#75715e">//第一个有意义的 element</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> tail; <span style="color:#75715e">//最后一个有意义的 element</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 因为是环形链表 所以我需要维护 一个size</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> size;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">BoundedQueue</span> (<span style="color:#66d9ef">int</span> cap) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>cap<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tail</span> <span style="color:#f92672">=</span> 0;	
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">offer</span> (<span style="color:#66d9ef">int</span> value) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (isFull) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		array<span style="color:#f92672">[</span>tail<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> ele;
+</span></span><span style="display:flex;"><span>		tail <span style="color:#f92672">=</span> tail <span style="color:#f92672">+</span> 1 <span style="color:#f92672">==</span> array.<span style="color:#a6e22e">length</span> <span style="color:#f92672">?</span> 0 : tail <span style="color:#f92672">+</span> 1;
+</span></span><span style="display:flex;"><span>		size<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">peek</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> isEmpty() <span style="color:#f92672">?</span> <span style="color:#66d9ef">null</span> : array<span style="color:#f92672">[</span>head<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span> () {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isEmpty</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size <span style="color:#f92672">==</span> 0;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isFull</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size <span style="color:#f92672">==</span> array.<span style="color:#a6e22e">length</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+        </p>
+    </div>
+</div>
+
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+    <span>&copy; 2021-2024</span>
+    
+    
+    
+</footer>
+</body>
+</html>

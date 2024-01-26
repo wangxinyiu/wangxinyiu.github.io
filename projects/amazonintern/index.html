@@ -17,26 +17,26 @@
     
 
     
-    <title>💗刷题笔记</title>
+    <title>A Server Migration to AWS (Internship at Amazon)</title>
     <meta name="description" content="There is more to come!">
     <meta name="keywords" content='blog, gokarna, hugo'>
 
-    <meta property="og:url" content="https://wangxinyiu.github.io/posts/my-first-post/">
+    <meta property="og:url" content="https://wangxinyiu.github.io/projects/amazonintern/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="💗刷题笔记">
+    <meta property="og:title" content="A Server Migration to AWS (Internship at Amazon)">
     <meta property="og:description" content="There is more to come!">
     <meta property="og:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
     <meta property="og:image:secure_url" content="https://wangxinyiu.github.io/images/uci_1.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="💗刷题笔记">
+    <meta name="twitter:title" content="A Server Migration to AWS (Internship at Amazon)">
     <meta name="twitter:description" content="There is more to come!">
-    <meta property="twitter:domain" content="https://wangxinyiu.github.io/posts/my-first-post/">
-    <meta property="twitter:url" content="https://wangxinyiu.github.io/posts/my-first-post/">
+    <meta property="twitter:domain" content="https://wangxinyiu.github.io/projects/amazonintern/">
+    <meta property="twitter:url" content="https://wangxinyiu.github.io/projects/amazonintern/">
     <meta name="twitter:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
 
     
-    <link rel="canonical" href="https://wangxinyiu.github.io/posts/my-first-post/" />
+    <link rel="canonical" href="https://wangxinyiu.github.io/projects/amazonintern/" />
 
     
     <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
@@ -165,74 +165,61 @@
     </nav>
 </header>
 <main id="content">
-    <div class="post container">
-    <div class="post-header-section">
-        <h1>💗刷题笔记</h1>
-        <small role="doc-subtitle"></small>
-        <p class="post-date">January 24, 2024
-        
-        </p>
+    
 
-        <ul class="post-tags">
-        
-        </ul>
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>A Server Migration to AWS (Internship at Amazon)</h1>
     </div>
 
     <div class="post-content">
         <p>
-            <p><a href="/posts/implementdatastructure/">Manual implementation of data structures</a></p>
+            <h1 id="what-i-did">What I did</h1>
+<ol>
+<li>Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly.</li>
+<li>Decoupled the original code into smaller units and transitioned from Python to Java. Using the code-driven AWS Cloud Development Kit (CDK) approach, we configured various AWS services including Lambda functions, S3, VPC, among others.</li>
+<li>Used the AWS Step Functions service to orchestrate a series of independent AWS Lambda functions into a cohesive workflow, and addressed the challenge of passing parameters between Lambdas using an S3 bucket.</li>
+<li>Implemented parallel operations in stepfunction that allow for moving data from multiple source host to multiple target hosts.</li>
+</ol>
+<h3 id="result">Result</h3>
+<p><img src="/images/flowchart1.png" alt="flow chart in step function1">
+<img src="/images/flowchart2.png" alt="flow chart in step fucntion2"></p>
+<h2 id="introdunction">Introdunction</h2>
+<p>Achieve the workflow(BatchMoveEndpoint) in AWS and demonstrate the server(SableManagementServer) can be implemented in Native AWS.</p>
+<h2 id="motivation">Motivation</h2>
+<p>The current Server uses architecture which has the limitation on scalability and maintainability. Here are some reasons that are prompting move to AWS.</p>
+<ol>
+<li>
+<p>Improved maintainability:
+Time required to maintain system, software, hardware update manual.</p>
+</li>
+<li>
+<p>Enhanced scalability:
+The server needs to handle the storgae of data and workflows efficientyly, but current architeture, a cluster of three hosts, has limitation. The inability to replace or modify individual hosts during a failure is a problem.</p>
+</li>
+<li>
+<p>AWS benefits:</p>
+<ul>
+<li>More easy to maintain: don;t need to reply on our own data and infrastructure. Move to AWS allows all infrastructure management to be code-driven, preventing any conflitcts between deployment and maintenance.</li>
+<li>More friendly
+<ul>
+<li>Lower Learning Curve</li>
+<li>Extensive Documentation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="high-level-design">High-level Design</h2>
+<p><img src="/images/lowlevel.png" alt="highlevel_design"></p>
 
         </p>
-        
     </div>
-
-    <div class="prev-next">
-        
-    </div>
-
-    
-    
-    <svg id="btt-button" class="arrow-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" onclick="topFunction()" title="Go to top">
-        
-        <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
-    </svg>
-    
-    <script>
-        let backToTopButton = document.getElementById("btt-button");
-
-        window.onscroll = function() {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        }
-
-        function topFunction() {
-            smoothScrollToTop();
-        }
-
-        function smoothScrollToTop() {
-            const scrollToTop = () => {
-                const c = document.documentElement.scrollTop || document.body.scrollTop;
-                if (c > 0) {
-                    window.requestAnimationFrame(scrollToTop);
-                    window.scrollTo(0, c - c / 8);
-                }
-            };
-            scrollToTop();
-        }
-    </script>
-    
 </div>
 
 
 
-    
 
         </main><footer class="footer">
     
