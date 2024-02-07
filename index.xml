@@ -6,12 +6,19 @@
     <description>Recent content on Xinyi Wang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Jan 2024 18:00:36 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Feb 2024 14:51:57 -0800</lastBuildDate>
     <atom:link href="https://wangxinyiu.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>💗刷题笔记</title>
+      <title>Hadoop</title>
+      <link>https://wangxinyiu.github.io/posts/hadoop/</link>
+      <pubDate>Tue, 06 Feb 2024 14:51:57 -0800</pubDate>
+      <guid>https://wangxinyiu.github.io/posts/hadoop/</guid>
+      <description> Hadoop介绍 Hadoop集群整体概述 Hadoop介绍 Hadoop核心组件 Hadoop HDFS（分布式文件存储系统）：解决海量数据存储 Hadoop YARN（集群资源管理和任务调度框架）：解决资源任务调度 Hadoop MapReduce（分布式计算框架）：解决海量数据计算 (广义上Hadoop是指围绕Hadoop的大数据生态圈) Hadoop特性优点 Scalability, Economical, Efficiency, Reliability&#xA;Hadoop发行版本 开源社区版 / 商业发行版 https://hadoop.apache.org/&#xA;Hadoop集群整体概述 </description>
+    </item>
+    <item>
+      <title>刷题笔记</title>
       <link>https://wangxinyiu.github.io/posts/my-first-post/</link>
-      <pubDate>Wed, 24 Jan 2024 18:00:36 -0800</pubDate>
+      <pubDate>Wed, 20 Oct 2021 18:00:36 -0800</pubDate>
       <guid>https://wangxinyiu.github.io/posts/my-first-post/</guid>
       <description>Manual implementation of data structures</description>
     </item>
@@ -20,7 +27,7 @@
       <link>https://wangxinyiu.github.io/projects/amazonintern/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://wangxinyiu.github.io/projects/amazonintern/</guid>
-      <description>What I did Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly. Decoupled the original code into smaller units and transitioned from Python to Java. Using the code-driven AWS Cloud Development Kit (CDK) approach, we configured various AWS services including Lambda functions, S3, VPC, among others.</description>
+      <description>Trasanction Stroage &amp;amp; Config Team&#xA;What I did Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly. Decoupled the original code into smaller units and transitioned from Python to Java. Using the code-driven AWS Cloud Development Kit (CDK) approach, we configured various AWS services including Lambda functions, S3, VPC, among others.</description>
     </item>
     <item>
       <title>Manual implementation of data structures</title>
@@ -35,6 +42,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://wangxinyiu.github.io/projects/papyrusai/</guid>
       <description>About PapyrusAI was developed by the Digital Learning Lab at the University of California, Irvine, in partnership with the Samueli School of Engineering, as part of an NSF grant (#23152984).&#xA;While our initial goal is to develop this tool for use in higher education courses, we received a Proof of Product grant from UCI’s Beall Applied Innovation Center to adapt the tool for secondary school and determine the marketability and feasibility of commercializing PapyrusAI.</description>
+    </item>
+    <item>
+      <title>Smart home communication network and control system - Internship at CAS</title>
+      <link>https://wangxinyiu.github.io/projects/smarthome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://wangxinyiu.github.io/projects/smarthome/</guid>
+      <description></description>
     </item>
     <item>
       <title>StayBooking - An online stay rental application</title>
