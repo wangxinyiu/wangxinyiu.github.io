@@ -15,6 +15,13 @@
       <description>Trasanction Stroage &amp;amp; Config Team&#xA;What I did Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly. Decoupled the original code into smaller units and transitioned from Python to Java. Using the code-driven AWS Cloud Development Kit (CDK) approach, we configured various AWS services including Lambda functions, S3, VPC, among others.</description>
     </item>
     <item>
+      <title>Cat and Dog Recognition Based on CNN Convolutional Neural Network</title>
+      <link>https://wangxinyiu.github.io/projects/catdogrecognition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://wangxinyiu.github.io/projects/catdogrecognition/</guid>
+      <description>Here is PDF: Cat and Dog Recognition Based on CNN Convolutional Neural Network</description>
+    </item>
+    <item>
       <title>PapyrusAI - An tool for use in higher education courses</title>
       <link>https://wangxinyiu.github.io/projects/papyrusai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

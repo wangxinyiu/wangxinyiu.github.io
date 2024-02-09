@@ -13,14 +13,14 @@
       <link>https://wangxinyiu.github.io/posts/hadoop/</link>
       <pubDate>Tue, 06 Feb 2024 14:51:57 -0800</pubDate>
       <guid>https://wangxinyiu.github.io/posts/hadoop/</guid>
-      <description> Hadoop介绍 Hadoop集群整体概述 Hadoop介绍 Hadoop核心组件 Hadoop HDFS（分布式文件存储系统）：解决海量数据存储 Hadoop YARN（集群资源管理和任务调度框架）：解决资源任务调度 Hadoop MapReduce（分布式计算框架）：解决海量数据计算 (广义上Hadoop是指围绕Hadoop的大数据生态圈) Hadoop特性优点 Scalability, Economical, Efficiency, Reliability&#xA;Hadoop发行版本 开源社区版 / 商业发行版 https://hadoop.apache.org/&#xA;Hadoop集群整体概述 </description>
+      <description> Hadoop概述 Hadoop组成 HDFS YARN MapReduce HDFS、YARN、MapReduce三者关系 大数据技术生态体系 Hadoop概述 Hadoop核心组件 Hadoop HDFS（分布式文件存储系统）：解决海量数据存储 Hadoop YARN（集群资源管理和任务调度框架）：解决资源任务调度 Hadoop MapReduce（分布式计算框架）：解决海量数据计算 (广义上Hadoop是指围绕Hadoop的大数据生态圈) Hadoop组成 HDFS NameNode(nn) -&amp;gt; 数据都存储在什么位置: 存储文件的元数据，如文件名，文件目录结构，文件属性（生成时间、副本数、文件权限），以及每个问价你的块列表和块所在的DataNode等 DataNode(dn) -&amp;gt; 具体存储数据: 在本地文件系统存储文件块数据，以及块数据的校验和 Secondary NameNode(2nn) -&amp;gt; 秘书: 每隔一段时间对NameNode元数据备份 YARN MapReduce MapReduce将计算过程分为俩个阶段：Map 和 Reduce&#xA;Map阶段并行处理输入数据 Reduce阶段对Map结果进行汇总 HDFS、YARN、MapReduce三者关系 大数据技术生态体系 </description>
     </item>
     <item>
-      <title>刷题笔记</title>
-      <link>https://wangxinyiu.github.io/posts/my-first-post/</link>
-      <pubDate>Wed, 20 Oct 2021 18:00:36 -0800</pubDate>
-      <guid>https://wangxinyiu.github.io/posts/my-first-post/</guid>
-      <description>Manual implementation of data structures</description>
+      <title>Hardware Structure</title>
+      <link>https://wangxinyiu.github.io/posts/system/</link>
+      <pubDate>Fri, 01 Oct 2021 14:51:57 -0800</pubDate>
+      <guid>https://wangxinyiu.github.io/posts/system/</guid>
+      <description> CPU是如何直接程序的？ 磁盘比内存慢几万倍？ CPU是如何直接程序的？ 磁盘比内存慢几万倍？ </description>
     </item>
     <item>
       <title>Manual implementation of data structures</title>
