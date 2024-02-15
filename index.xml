@@ -51,18 +51,11 @@
       <description>About PapyrusAI was developed by the Digital Learning Lab at the University of California, Irvine, in partnership with the Samueli School of Engineering, as part of an NSF grant (#23152984).&#xA;While our initial goal is to develop this tool for use in higher education courses, we received a Proof of Product grant from UCI’s Beall Applied Innovation Center to adapt the tool for secondary school and determine the marketability and feasibility of commercializing PapyrusAI.</description>
     </item>
     <item>
-      <title>Smart home communication network and control system - Internship at CAS</title>
-      <link>https://wangxinyiu.github.io/projects/smarthome/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://wangxinyiu.github.io/projects/smarthome/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>StayBooking - An online stay rental application</title>
       <link>https://wangxinyiu.github.io/projects/staybooking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://wangxinyiu.github.io/projects/staybooking/</guid>
-      <description>What I did Deomo: https://recordit.co/cXdWcj0ahV&#xA;Designed and built a single-page web application using React. Bootstrap the development with mature component library Ant Design. Implemented the backend services based on Spring Boot to support stay upload, delete, search, and reserve functionality. Used MySQL to store user-generated data, e.g. stay information and reservation history, and utilized Google Cloud Storage to store media files for uploaded stays. Created geo index by Elasticsearch to support geo-based stay search based on user’s selected locations.</description>
+      <description>What I did Backend Structure Data Model Compelete Code Challenge Elastic Search(Star) elastic search 实现步骤简述 用Google cloud storage（GCS）存储照片等流媒体 为什么elastic search的全局搜索能力这么强呢？ What I did Deomo: https://recordit.co/cXdWcj0ahV&#xA;Designed and built a single-page web application using React. Bootstrap the development with mature component library Ant Design. Implemented the backend services based on Spring Boot to support stay upload, delete, search, and reserve functionality. Used MySQL to store user-generated data, e.g. stay information and reservation history, and utilized Google Cloud Storage to store media files for uploaded stays.</description>
     </item>
   </channel>
 </rss>
