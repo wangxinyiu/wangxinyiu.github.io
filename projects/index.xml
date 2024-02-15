@@ -12,7 +12,7 @@
       <link>https://wangxinyiu.github.io/projects/amazonintern/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://wangxinyiu.github.io/projects/amazonintern/</guid>
-      <description>Trasanction Stroage &amp;amp; Config Team&#xA;What I did Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly. Decoupled the original code into smaller units and transitioned from Python to Java. Using the code-driven AWS Cloud Development Kit (CDK) approach, we configured various AWS services including Lambda functions, S3, VPC, among others.</description>
+      <description>Trasanction Stroage &amp;amp; Config Team&#xA;Introdunction What I did Motivation Result High-level Design Details Why Stepfunction rather than EC2? Why do I plan to use AWS CDK instead of CloudFormation? How do I make sure the code quality? Introdunction Achieve the workflow(BatchMoveEndpoint) in AWS and demonstrate the server(SableManagementServer) can be implemented in Native AWS.&#xA;PDF: [Proof of Conceop] SableManagementServer BatchMoveEndpoints in NAWS: Design Doc&#xA;What I did Migrated the BatchMoveEndpoint (BME) workflow to AWS, ensuring full implementation of SableManagementServer (SMS) within the native AWS environment, which reduced 128 maintenance tickets annually.</description>
     </item>
     <item>
       <title>Cat and Dog Recognition Based on CNN Convolutional Neural Network</title>

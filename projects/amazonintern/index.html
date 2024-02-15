@@ -52,6 +52,17 @@
 
     
     
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'forest'
+        });
+    </script>
+
+    
+    
         <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
@@ -176,19 +187,35 @@
     <div class="post-content">
         <p>
             <p><strong>Trasanction Stroage &amp; Config Team</strong></p>
-<h1 id="what-i-did">What I did</h1>
-<ol>
-<li>Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly.</li>
-<li>Decoupled the original code into smaller units and transitioned from Python to Java. Using the code-driven AWS Cloud Development Kit (CDK) approach, we configured various AWS services including Lambda functions, S3, VPC, among others.</li>
-<li>Used the AWS Step Functions service to orchestrate a series of independent AWS Lambda functions into a cohesive workflow, and addressed the challenge of passing parameters between Lambdas using an S3 bucket.</li>
-<li>Implemented parallel operations in stepfunction that allow for moving data from multiple source host to multiple target hosts.</li>
-</ol>
-<h2 id="result">Result</h2>
-<p><img src="/images/flowchart1.png" alt="flow chart in step function1">
-<img src="/images/flowchart2.png" alt="flow chart in step fucntion2"></p>
-<h2 id="introdunction">Introdunction</h2>
+<ul>
+<li><a href="#introdunction">Introdunction</a></li>
+<li><a href="#what-i-did">What I did</a></li>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#result">Result</a></li>
+<li><a href="#high-level-design">High-level Design</a></li>
+<li><a href="#details">Details</a>
+<ul>
+<li><a href="#why-stepfunction-rather-than-ec2">Why Stepfunction rather than EC2?</a></li>
+<li><a href="#why-do-i-plan-to-use-aws-cdk-instead-of-cloudformation">Why do I plan to use AWS CDK instead of CloudFormation?</a></li>
+<li><a href="#how-do-i-make-sure-the-code-quality">How do I make sure the code quality?</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="introdunction">Introdunction</h1>
 <p>Achieve the workflow(BatchMoveEndpoint) in AWS and demonstrate the server(SableManagementServer) can be implemented in Native AWS.</p>
-<h2 id="motivation">Motivation</h2>
+<p><a href="https://drive.google.com/file/d/1MczefSZ5z4I1cmAJyJ-hwkjFvr4U2FXz/view?usp=sharing">PDF: [Proof of Conceop] SableManagementServer BatchMoveEndpoints in NAWS: Design Doc</a></p>
+<h1 id="what-i-did">What I did</h1>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ol>
+<li>Migrated the BatchMoveEndpoint (BME) workflow to AWS, ensuring full implementation of SableManagementServer (SMS) within the native AWS environment, which reduced 128 maintenance tickets annually.</li>
+<li>Evaluated different AWS services for server deployment, including EC2, ECS, and Step Functions, and analyzed them against our current needs. Ultimately, I opted for Step Functions for implementation and carried out the system design accordingly.</li>
+<li>Decoupled the workflow into 12 modular units, transitioning from Python to Java, and rigorously tested each unit to ensure robust functionality, thereby achieving 99.9% uptime.</li>
+<li>Utilized the AWS Cloud Development Kit (CDK) for a code-first infrastructure approach, configuring a suite of AWS services including Lambda functions, S3, and VPC, which resulted in a 75% reduction in deployment time compared to manual configuration via the AWS Management Console.</li>
+<li>Orchestrated a network of independent AWS Lambda functions into a unified workflow using AWS Step Functions, overcoming the complexity of inter-lambda parameter passing via S3 bucket integration. This architecture enhancement increased process efficiency by 40% and reduced operational costs by 30%.</li>
+<li>Enhanced data agility by implementing parallel operations within AWS Step Functions, enabling efficient data transfer across multiple source and target hosts.</li>
+</ol>
+<h1 id="motivation">Motivation</h1>
 <p>The current Server uses architecture which has the limitation on scalability and maintainability. Here are some reasons that are prompting move to AWS.</p>
 <ol>
 <li>
@@ -212,8 +239,92 @@ The server needs to handle the storgae of data and workflows efficientyly, but c
 </ul>
 </li>
 </ol>
-<h2 id="high-level-design">High-level Design</h2>
+<h1 id="result">Result</h1>
+<p><img src="/images/flowchart1.png" alt="flow chart in step function1">
+<img src="/images/flowchart2.png" alt="flow chart in step fucntion2"></p>
+<h1 id="high-level-design">High-level Design</h1>
 <p><img src="/images/lowlevel.png" alt="highlevel_design"></p>
+<h1 id="details">Details</h1>
+<h2 id="why-stepfunction-rather-than-ec2">Why Stepfunction rather than EC2?</h2>
+<ol>
+<li>自动扩展和容错：Step Functions 自动处理扩展和容错，确保工作流的执行即使在高负载下也能保持高可用性。相比之下，使用 EC2 实例通常需要手动设置自动扩展策略和容错机制。
+<ul>
+<li>自动缩放：Step Functions 可以根据工作流执行的数量自动缩放，以适应请求量的变化。这意味着在请求量增加时，Step Functions 能够动态地增加资源来处理更多的工作流，并在负载减少时相应地减少资源。</li>
+<li>内置容错：Step Functions 通过多个可用区内的冗余部署来提高容错能力。如果一个区域发生故障，Step Functions 可以自动切换到其他区域以维持服务的持续可用性。</li>
+<li>状态持久性：Step Functions 保持每个工作流的状态，即使在高负载或部分系统故障的情况下，也能确保不丢失状态信息。这有助于在发生故障后快速恢复执行。</li>
+<li>错误处理和重试策略：Step Functions 允许定义错误处理逻辑和重试策略，这有助于在执行步骤失败时自动进行处理和重试，而无需人工干预。</li>
+<li>分布式执行：Step Functions 的设计允许工作流的分布式执行，工作流中的各个步骤可以在不同的计算资源上并行或独立运行，从而提高了整体的可用性和效率。</li>
+<li>持续监控和维护：AWS 持续监控 Step Functions 服务的性能，并自动进行维护更新以确保服务的最佳状态。</li>
+</ul>
+</li>
+<li>成本效益：对于事件驱动或间歇性工作负载，Step Functions 可能更加成本效益，因为你只为工作流执行的状态转换付费，而不需要为持续运行的服务器付费。而 EC2 实例则需要按小时计费，不管它们是否处于活动状态。</li>
+<li>简化的开发和部署：Step Functions 提供了声明式的状态机模型，简化了工作流的定义、部署和管理。这可以加速开发过程，特别是对于复杂的业务逻辑和多步骤工作流。</li>
+<li>工作流管理：Step Functions 是一种完全托管的服务，专为简化复杂工作流的协调和状态管理而设计。如果你需要编排多个 AWS 服务（如 Lambda、S3、DynamoDB 等）之间的工作流，Step Functions 提供了一个可视化界面和声明式 API 来定义和管理这些步骤。</li>
+<li>无服务器架构：Step Functions 可以与 AWS Lambda 等无服务器计算服务无缝集成，使你能够构建无需管理服务器的应用程序。这种模式减轻了运维负担，因为 AWS 负责维护底层计算资源。
+<ul>
+<li>无服务器架构的关键特点包括：
+<ul>
+<li>事件驱动：大多数无服务器计算平台都是基于事件驱动的，这意味着你的代码会在检测到一个或多个预定义事件时自动执行。</li>
+<li>按需计算：代码只在需要时运行，你只为实际计算时间付费。当代码不运行时，没有费用产生。</li>
+<li>管理型服务：底层基础设施由云服务提供商管理。这包括服务器的维护、扩展和更新等任务。</li>
+<li>自动扩展：应用程序可以根据需要自动扩展到几乎无限的容量，也可以缩减到零。</li>
+<li>内置高可用性和容错：无服务器平台通常在多个数据中心内部署，以实现高可用性和容错性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>集成和API支持：Step Functions 提供广泛的 API 支持和与其他 AWS 服务的内置集成，这使得构建和集成跨服务的复杂应用程序变得更加容易。</li>
+</ol>
+<h2 id="why-do-i-plan-to-use-aws-cdk-instead-of-cloudformation">Why do I plan to use AWS CDK instead of CloudFormation?</h2>
+<p>AWS CloudFormation and AWS CDK are automation tools provided by AWS for creating and managing cloud environments.</p>
+<p>CloudFormation offers a stable, straightforward, and easily understandable way to define and deploy cloud environments, but may become complex and hard to maintain when dealing with complex environments.</p>
+<p>On the contrary, CDK allows you to define your cloud environment using regular programming languages such as TypeScript, Python, Java, etc., making code reuse and abstractions simpler, but its learning curve may be steeper, especially for those unfamiliar with programming.</p>
+<p>Therefore, if you value the advantages of a programming language, like code reuse and higher-level abstractions, along with using familiar development tools, choosing AWS CDK over CloudFormation makes sense.</p>
+<h2 id="how-do-i-make-sure-the-code-quality">How do I make sure the code quality?</h2>
+<ol>
+<li>Compile-time check
+<ul>
+<li>Use type-safe parameters and return types to avoid type conversion errors.</li>
+</ul>
+</li>
+<li>Unit Testing
+<ul>
+<li>Use testing frameworks such as JUnit to automate the tests.</li>
+<li>Check boundary conditions and exceptions.</li>
+</ul>
+</li>
+<li>Integration test
+<ul>
+<li>Test functions in the broader context of the system to ensure that interactions with other components work as expected.</li>
+</ul>
+</li>
+<li>Code review
+<ul>
+<li>Check for potential logic errors and suggestions for improvement through code reviews by colleagues.</li>
+</ul>
+</li>
+<li>Static code analysis
+<ul>
+<li>Use tools such as SonarQube, Checkstyle, PMD, or FindBugs to detect potential issues and bad practices in your code.</li>
+</ul>
+</li>
+<li>Code coverage analysis
+<ul>
+<li>Use a tool such as Jacoco to analyze code coverage and ensure that the test cases cover all code paths.</li>
+</ul>
+</li>
+<li>Continuous Integration (CI)
+<ul>
+<li>Automate the above tests in your CI/CD pipeline to ensure that every commit or merge request doesn&rsquo;t break existing functionality.</li>
+</ul>
+</li>
+<li>Error handling and logging
+<ul>
+<li>Make sure that your function has an appropriate error handling mechanism.</li>
+<li>Use logging to track the behavior of your functions for easy diagnosis and debugging of problems.</li>
+</ul>
+</li>
+</ol>
 
         </p>
     </div>

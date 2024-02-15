@@ -6,21 +6,21 @@
     <description>Recent content in Posts on Xinyi Wang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Feb 2024 14:51:57 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 14 Feb 2024 11:22:06 -0800</lastBuildDate>
     <atom:link href="https://wangxinyiu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Storage Tec</title>
+      <link>https://wangxinyiu.github.io/posts/datastoragetec/</link>
+      <pubDate>Wed, 14 Feb 2024 11:22:06 -0800</pubDate>
+      <guid>https://wangxinyiu.github.io/posts/datastoragetec/</guid>
+      <description>Technology Advantages Disadvantages Use Cases SQL Databases (e.g., MySQL, PostgreSQL) Structured data, ACID transactions, Complex queries Limited scalability, Schema rigidity Transactional data, Traditional applications (如金融服务) NoSQL Databases (e.g., MongoDB, Cassandra) Scalability, Flexible schema, High performance for unstructured data Less support for ACID transactions, Complexity in data consistency Big Data applications, Content Management, Real-time analytics In-Memory Data Stores (e.g., Redis) High performance, Data volatility, Supports complex data types Data size limited by memory, Persistence complexity Caching, Session storage, Real-time analytics Search Engines (e.</description>
+    </item>
     <item>
       <title>Hadoop</title>
       <link>https://wangxinyiu.github.io/posts/hadoop/</link>
       <pubDate>Tue, 06 Feb 2024 14:51:57 -0800</pubDate>
       <guid>https://wangxinyiu.github.io/posts/hadoop/</guid>
       <description> Hadoop概述 Hadoop组成 HDFS YARN MapReduce HDFS、YARN、MapReduce三者关系 大数据技术生态体系 Hadoop概述 Hadoop核心组件 Hadoop HDFS（分布式文件存储系统）：解决海量数据存储 Hadoop YARN（集群资源管理和任务调度框架）：解决资源任务调度 Hadoop MapReduce（分布式计算框架）：解决海量数据计算 (广义上Hadoop是指围绕Hadoop的大数据生态圈) Hadoop组成 HDFS NameNode(nn) -&amp;gt; 数据都存储在什么位置: 存储文件的元数据，如文件名，文件目录结构，文件属性（生成时间、副本数、文件权限），以及每个问价你的块列表和块所在的DataNode等 DataNode(dn) -&amp;gt; 具体存储数据: 在本地文件系统存储文件块数据，以及块数据的校验和 Secondary NameNode(2nn) -&amp;gt; 秘书: 每隔一段时间对NameNode元数据备份 YARN MapReduce MapReduce将计算过程分为俩个阶段：Map 和 Reduce&#xA;Map阶段并行处理输入数据 Reduce阶段对Map结果进行汇总 HDFS、YARN、MapReduce三者关系 大数据技术生态体系 </description>
-    </item>
-    <item>
-      <title>Hardware Structure</title>
-      <link>https://wangxinyiu.github.io/posts/system/</link>
-      <pubDate>Fri, 01 Oct 2021 14:51:57 -0800</pubDate>
-      <guid>https://wangxinyiu.github.io/posts/system/</guid>
-      <description> CPU是如何直接程序的？ 磁盘比内存慢几万倍？ CPU是如何直接程序的？ 磁盘比内存慢几万倍？ </description>
     </item>
     <item>
       <title>Manual implementation of data structures</title>
