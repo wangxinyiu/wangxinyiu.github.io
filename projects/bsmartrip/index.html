@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>A travel planning app based on Google Maps and TripAdvisor</title>
+    <meta name="description" content="Hello and welcome to my portfolio!">
+    <meta name="keywords" content='blog, gokarna, hugo'>
+
+    <meta property="og:url" content="https://wangxinyiu.github.io/projects/bsmartrip/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="A travel planning app based on Google Maps and TripAdvisor">
+    <meta property="og:description" content="Hello and welcome to my portfolio!">
+    <meta property="og:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
+    <meta property="og:image:secure_url" content="https://wangxinyiu.github.io/images/uci_1.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A travel planning app based on Google Maps and TripAdvisor">
+    <meta name="twitter:description" content="Hello and welcome to my portfolio!">
+    <meta property="twitter:domain" content="https://wangxinyiu.github.io/projects/bsmartrip/">
+    <meta property="twitter:url" content="https://wangxinyiu.github.io/projects/bsmartrip/">
+    <meta name="twitter:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
+
+    
+    <link rel="canonical" href="https://wangxinyiu.github.io/projects/bsmartrip/" />
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.c60dbb422ed053b0761160e3a3f08b9af2060f00adc8f12c0ff21a8cf55b3d8e.js" integrity="sha256-xg27Qi7QU7B2EWDjo/CLmvIGDwCtyPEsD/IajPVbPY4="></script>
+
+    
+    
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'forest'
+        });
+    </script>
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+      });
+    </script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://wangxinyiu.github.io/">
+                <img src='/images/uci_1.jpg' alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://wangxinyiu.github.io/">Xinyi Wang</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/experience/"><span data-feather='book'></span> Experience </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/projects/"><span data-feather='code'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/posts/"><span data-feather='coffee'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://wangxinyiu.github.io/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/experience/"><span data-feather='book'></span> Experience </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/projects/"><span data-feather='code'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/posts/"><span data-feather='coffee'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://wangxinyiu.github.io/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>A travel planning app based on Google Maps and TripAdvisor</h1>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p><a href="https://docs.google.com/presentation/d/1r6r_yNDs9v0hbEkXNEE-z0oToEigMs-DRg6-qItkUzc/edit?usp=sharing">Presentation Slides Link</a></p>
+<p><strong>Catalogs</strong></p>
+<ul>
+<li><a href="#introdunction">Introdunction</a></li>
+<li><a href="#star1---rapid-api">STAR1 -&gt; Rapid API</a></li>
+<li><a href="#star2---priority-classfication">Star2 -&gt; Priority classfication</a></li>
+<li><a href="#details">Details</a>
+<ul>
+<li><a href="#%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3">后端开发文档</a></li>
+<li><a href="#restapi">RestAPI</a></li>
+<li><a href="#er-diagram">ER diagram</a></li>
+<li><a href="#flow-chart">Flow Chart</a></li>
+</ul>
+</li>
+<li><a href="#design-picture">Design Picture</a></li>
+</ul>
+<h1 id="introdunction">Introdunction</h1>
+<p>在我的前一段工作中，我担任后端API开发的关键角色，负责实现和维护应用程序的核心后端功能。这包括但不限于用户注册、认证以及数据检索和管理等多个方面。</p>
+<ol>
+<li>
+<p>在用户注册方面，我主要负责使用Spring Security框架来实现基于Token的安全系统。通过这个框架，我创建了一个自定义的认证流程，它能够在用户注册时生成一个安全的Token，并在用户登录时进行验证。这个Token是通过安全算法加密的，并且每次请求都需要携带它来确保用户身份的合法性。使用Spring Security使得整个认证过程不仅安全，而且可维护性和扩展性也非常好，为应用提供了坚固的安全基础。</p>
+</li>
+<li>
+<p>我还负责集成了第三方API，如RapidAPI中的Travel Advisor，为规划合理路线功能提供数据支持。这项工作不仅需要理解外部API的工作原理，还需要处理数据同步和异常管理，以确保用户能够获取到准确和及时的旅行建议。</p>
+</li>
+<li>
+<p>至于数据的搜索和下载功能，我使用了elastic search去构建，其可以允许用户根据多个维度进行筛选，使得数据检索既高效又精确。</p>
+</li>
+</ol>
+<p>在这一过程中，我与前端团队紧密合作，确保了API设计的前后端一致性，以及响应性能的优化。通过不断的沟通和迭代，我们共同提升了整个应用程序的稳定性和用户体验。</p>
+<p>这些工作的成果不仅体现在直接的用户反馈上，也在于后端服务的稳定性和可扩展性方面。我为能够支持团队并助力前端功能的实现和业务需求的扩展而感到自豪。</p>
+<h1 id="star1---rapid-api">STAR1 -&gt; Rapid API</h1>
+<ol>
+<li>
+<p><strong>情境 (Situation)</strong>     <br>
+在开发一个需要大量旅游信息的项目初期，我们计划使用TripAdvisor的API来获取数据。这个API的成本是平均每个月$350，但它的rate limit是每小时1000次请求，这对于我们的需求来说既昂贵又效率低下。</p>
+</li>
+<li>
+<p><strong>任务 (Task)</strong>  <br>
+鉴于成本和效率的双重挑战，我的任务是找到一个更经济高效的解决方案，以支持我们的项目需求，同时不牺牲所需的数据质量和访问频率。</p>
+</li>
+<li>
+<p><strong>行动 (Action)</strong>    <br>
+为了解决这个问题，我开始寻找替代的API服务。通过广泛的市场调研，我在Rapid API平台上找到了一个名为&quot;Travel Advisor&quot;的API。它提供了更符合我们预算和性能需求的服务条件：免费支持每月500次请求，同时其rate limit为每秒5次请求。我对比了两个API提供的服务内容、数据质量和使用条款，确保&quot;Travel Advisor&quot;能满足我们的项目需求。</p>
+</li>
+<li>
+<p><strong>结果 (Result)</strong>
+选择&quot;Travel Advisor&quot;API后，我们的团队在接下来的三个月内节省了$1050的成本，同时获得了更高效的数据访问能力。这个决策不仅优化了我们的项目预算，还提高了开发效率，确保项目能够在资源有限的情况下顺利进行。</p>
+<p>通过这个经历，我学会了如何有效地评估技术解决方案的成本效益，并且能够灵活调整计划以适应项目需求和预算限制。这个经验也强化了我的研究能力和决策制定能力。</p>
+</li>
+</ol>
+<h1 id="star2---priority-classfication">Star2 -&gt; Priority classfication</h1>
+<p><strong>Situation</strong>: I used to lead a team to finish a full-stack web development within one month. The time is very limited in this situation.</p>
+<p><strong>Task</strong>:  I have been given a big idea about this application which need to help our customer to provide travel planner behind they pick a city where they want to go. According to the time and the workload. It’s really not an easy thing.</p>
+<p><strong>Action</strong>:</p>
+<ol>
+<li>At the first, We discussed and brainstormed at the first meeting and the most important thing to finish our project quickly and high-quality is that I need to prioritize our functions. like, I separate our functions into different levels, like P0, P1, and P2.
+<ol>
+<li>P0 function is the basic function of our project. like, log in/ log out, Show points of interest in the map, and give a rational rounte for users, etc. I need to finish these basic functions at least in that month.</li>
+<li>P1 is the functions I need to try my best to finish like user authentication, selectively sharing daily plans, etc. → authentication is for user can log in by their indentities and we use the authentication function to provide account safe.</li>
+<li>P2 is I will achieve it in the future. like, rate other users&rsquo; trips, Invite friends to co-edit, etc.</li>
+</ol>
+</li>
+<li>Next, I had done many references for one of the most popular industrial modes, which is the agile development mode for achieving more efp rficiency. I separate our group into two sub-group, like front-end and back-end.</li>
+<li>Third, We meet four times a week, in order to put forward the feedback from each group member and so enhance the performance of our functional implementations.</li>
+</ol>
+<p><strong>Result</strong>: I finish all functions of P0 and P1 with high standards and quality, even remnant four days. Then I could spend some time summarizing the whole project and write a good document. I deployed my web application to amazon EC2 which has improved the performance in visibility and stability by over 18.2%. By the way, we have been praised by our group manager.</p>
+<p>I made a short viedo for my manager to introduce my whole project detail.</p>
+<p>The high level to summarize how to work under a time limit for me is to plan each day carefully.</p>
+<h1 id="details">Details</h1>
+<p>Make your trip visible and customize your daily travel routes.</p>
+<h2 id="后端开发文档">后端开发文档</h2>
+<p><a href="https://docs.google.com/document/d/1dKlzNrTD2t1VIjt8ihFopkxEANhsD0Awlyb0B7oyjRk/edit?usp=sharing">Backend Documentation</a></p>
+<h2 id="restapi">RestAPI</h2>
+<p><strong>1.Registration &amp; authentication</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>	<span style="color:#a6e22e">@PostMapping</span>(<span style="color:#e6db74">&#34;/register&#34;</span>)
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addUser</span>(<span style="color:#a6e22e">@RequestBody</span> User user)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">@PostMapping</span>(<span style="color:#e6db74">&#34;/authenticate&#34;</span>)
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">public</span> Token <span style="color:#a6e22e">authenticateUser</span>(<span style="color:#a6e22e">@RequestBody</span> User user)
+</span></span></code></pre></div><p><strong>2.Search points</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@GetMapping</span>(value<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span><span style="color:#f92672">/</span>search<span style="color:#960050;background-color:#1e0010">”</span>)
+</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Point<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">searchPoints</span>(<span style="color:#a6e22e">@RequestParam</span> category, required <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (category <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {<span style="color:#66d9ef">return</span> points in that category}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span> {<span style="color:#66d9ef">return</span> all points} 
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Backend will store all the points in the database first and then return the points.</span>
+</span></span></code></pre></div><p><strong>3. Save a plan</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@PostMapping</span>(value<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span><span style="color:#f92672">/</span>plan)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">savePlan</span>(<span style="color:#a6e22e">@Requestbody</span> requestbody, Principal principal)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// requestbody includes: </span>
+</span></span><span style="display:flex;"><span>  note of the plan
+</span></span><span style="display:flex;"><span>  date of each daily_plan
+</span></span><span style="display:flex;"><span>  list of points of each daily_plan
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// principal</span>
+</span></span><span style="display:flex;"><span>  requires frontend to send a token <span style="color:#66d9ef">for</span> authentication, like RestAPI in StayController in project staybooking
+</span></span></code></pre></div><p><strong>4. Delete a plan</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@DeleteMapping</span>(value<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span><span style="color:#f92672">/</span>plan<span style="color:#f92672">/</span>{planId}<span style="color:#960050;background-color:#1e0010">”</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deletePlan</span>(<span style="color:#a6e22e">@PathVariable</span> Long planId, Principal principal)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//requires frontend to send a token for authentication, like RestAPI in StayController in project staybooking</span>
+</span></span></code></pre></div><p><strong>5. Get plans by user</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@GetMapping</span>(value<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span><span style="color:#f92672">/</span>plan<span style="color:#960050;background-color:#1e0010">”</span>)
+</span></span><span style="display:flex;"><span>	List<span style="color:#f92672">&lt;</span>Plan<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getPlansByUser</span>(Principal principal)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// principal</span>
+</span></span><span style="display:flex;"><span>    requires frontend to send a token <span style="color:#66d9ef">for</span> authentication, like RestAPI in StayController in project staybooking
+</span></span></code></pre></div><blockquote>
+<p>requires frontend to send a token for authentication</p>
+</blockquote>
+<h2 id="er-diagram">ER diagram</h2>
+<p><img src="/images/SmartTripERdiagram.png" alt="alt text"></p>
+<h2 id="flow-chart">Flow Chart</h2>
+<p><img src="/images/SmartTrip.png" alt="alt text"></p>
+<p>Travel Advisor from rapid API: <a href="https://rapidapi.com/apidojo/api/travel-advisor">https://rapidapi.com/apidojo/api/travel-advisor</a></p>
+<h1 id="design-picture">Design Picture</h1>
+<p><img src="/images/Travel_Planner_1.JPG" alt="1">
+<img src="/images/Travel_Planner_2.JPG" alt="2"></p>
+
+        </p>
+    </div>
+
+
+        
+        
+        <svg id="btt-button" class="arrow-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" onclick="topFunction()" title="Go to top">
+            
+            <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
+        </svg>
+        
+        <script>
+            let backToTopButton = document.getElementById("btt-button");
+    
+            window.onscroll = function() {
+                scrollFunction()
+            };
+    
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    backToTopButton.style.display = "block";
+                } else {
+                    backToTopButton.style.display = "none";
+                }
+            }
+    
+            function topFunction() {
+                
+                document.body.scrollTop = 0; 
+                document.documentElement.scrollTop = 0; 
+            }
+    
+            function smoothScrollToTop() {
+                const scrollToTop = () => {
+                    const c = document.documentElement.scrollTop || document.body.scrollTop;
+                    if (c > 0) {
+                        window.requestAnimationFrame(scrollToTop);
+                        window.scrollTo(0, c - c / 8);
+                    }
+                };
+                scrollToTop();
+            }
+        </script>
+        
+</div>
+
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+    <span>&copy; 2021-2024</span>
+    
+    
+    
+</footer>
+</body>
+</html>

@@ -17,26 +17,26 @@
     
 
     
-    <title>Posts</title>
+    <title>Session-based VS Token-based Authentication</title>
     <meta name="description" content="Hello and welcome to my portfolio!">
     <meta name="keywords" content='blog, gokarna, hugo'>
 
-    <meta property="og:url" content="https://wangxinyiu.github.io/posts/">
+    <meta property="og:url" content="https://wangxinyiu.github.io/posts/tokensession/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Posts">
+    <meta property="og:title" content="Session-based VS Token-based Authentication">
     <meta property="og:description" content="Hello and welcome to my portfolio!">
     <meta property="og:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
     <meta property="og:image:secure_url" content="https://wangxinyiu.github.io/images/uci_1.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Posts">
+    <meta name="twitter:title" content="Session-based VS Token-based Authentication">
     <meta name="twitter:description" content="Hello and welcome to my portfolio!">
-    <meta property="twitter:domain" content="https://wangxinyiu.github.io/posts/">
-    <meta property="twitter:url" content="https://wangxinyiu.github.io/posts/">
+    <meta property="twitter:domain" content="https://wangxinyiu.github.io/posts/tokensession/">
+    <meta property="twitter:url" content="https://wangxinyiu.github.io/posts/tokensession/">
     <meta name="twitter:image" content="https://wangxinyiu.github.io/images/uci_1.jpg">
 
     
-    <link rel="canonical" href="https://wangxinyiu.github.io/posts/" />
+    <link rel="canonical" href="https://wangxinyiu.github.io/posts/tokensession/" />
 
     
     <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
@@ -176,37 +176,96 @@
     </nav>
 </header>
 <main id="content">
-    <div class="container list-posts">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Session-based VS Token-based Authentication</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">February 16, 2024
+        
+        </p>
 
-    <h1 class="list-title">Posts</h1>
+        <ul class="post-tags">
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p><strong>Session-based Authentication:</strong></p>
+<ul>
+<li>在基于会话的认证中，当用户登录时，服务器会创建一个会话，并将会话ID存储在服务器上。</li>
+<li>用户的浏览器会保存这个会话ID（通常在cookie中），并在随后的每个请求中发送回服务器。</li>
+<li>服务器通过会话ID来识别用户并验证请求的合法性。</li>
+</ul>
+<p><strong>Token-based Authentication:</strong></p>
+<ul>
+<li>而在基于令牌的认证系统中，当用户登录成功后，服务器会生成一个令牌（通常是JWT），并将其发送给用户。</li>
+<li>用户的设备存储该令牌，并在发起请求时将它作为认证头部信息发送回服务器。</li>
+<li>服务器解码令牌以验证用户的身份，而不是检查存储在服务器上的会话。</li>
+</ul>
+<p><strong>对比要点:</strong></p>
+<ol>
+<li><strong>存储位置</strong>: 会话ID通常存储在服务器上，而令牌通常由客户端保存。</li>
+<li><strong>状态</strong>: 基于会话的认证是有状态的，需要在服务器上维护会话状态；基于令牌的认证是无状态的，服务器不需要保存用户状态，令牌自包含了所有需要的信息。</li>
+<li><strong>可扩展性</strong>: 由于基于令牌的认证不需要服务器存储状态，它通常被认为在分布式系统中更具可扩展性。</li>
+<li><strong>跨域认证</strong>: 令牌更适合于现代的Web应用架构，特别是在处理跨域请求和移动设备认证时。</li>
+<li><strong>安全性</strong>: 令牌可以加密并包含复杂的授权信息，而会话ID通常较短并且需要依赖安全的传输机制（如HTTPS）来防止被拦截。</li>
+</ol>
+<p>这些差异意味着在现代Web和移动应用程序中，基于Token的认证（特别是JWT）越来越受到开发者的青睐，尽管在某些场景中，基于会话的认证仍然是一个有效的选择。</p>
+
+        </p>
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
 
     
-
-    <h2 class="posts-year">2024</h2><article class="post-title">
-    <a href="https://wangxinyiu.github.io/posts/tokensession/" class="post-link">Session-based VS Token-based Authentication</a>
-    <div class="flex-break"></div>
-    <span class="post-date">February 16, 2024</span>
-</article>
-<article class="post-title">
-    <a href="https://wangxinyiu.github.io/posts/datastoragetec/" class="post-link">Data Storage Tec</a>
-    <div class="flex-break"></div>
-    <span class="post-date">February 14, 2024</span>
-</article>
-<article class="post-title">
-    <a href="https://wangxinyiu.github.io/posts/systemdesign/" class="post-link">System Design</a>
-    <div class="flex-break"></div>
-    <span class="post-date">February 11, 2024</span>
-</article>
-<article class="post-title">
-    <a href="https://wangxinyiu.github.io/posts/hadoop/" class="post-link">Hadoop</a>
-    <div class="flex-break"></div>
-    <span class="post-date">February 6, 2024</span>
-</article>
-
     
+    <svg id="btt-button" class="arrow-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" onclick="topFunction()" title="Go to top">
+        
+        <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
+    </svg>
+    
+    <script>
+        let backToTopButton = document.getElementById("btt-button");
 
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            
+            document.body.scrollTop = 0; 
+            document.documentElement.scrollTop = 0; 
+        }
+
+        function smoothScrollToTop() {
+            const scrollToTop = () => {
+                const c = document.documentElement.scrollTop || document.body.scrollTop;
+                if (c > 0) {
+                    window.requestAnimationFrame(scrollToTop);
+                    window.scrollTo(0, c - c / 8);
+                }
+            };
+            scrollToTop();
+        }
+    </script>
+    
 </div>
 
+
+
+    
 
         </main><footer class="footer">
     

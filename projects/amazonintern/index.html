@@ -193,8 +193,11 @@
 <li><a href="#motivation">Motivation</a></li>
 <li><a href="#result">Result</a></li>
 <li><a href="#high-level-design">High-level Design</a></li>
+<li><a href="#challengest">Challengest</a></li>
 <li><a href="#details">Details</a>
 <ul>
+<li><a href="#decouple%E7%9A%84%E5%A5%BD%E5%A4%84">decouple的好处</a></li>
+<li><a href="#step-function%E7%9A%84%E5%A5%BD%E5%A4%84">Step function的好处</a></li>
 <li><a href="#why-stepfunction-rather-than-ec2">Why Stepfunction rather than EC2?</a></li>
 <li><a href="#why-do-i-plan-to-use-aws-cdk-instead-of-cloudformation">Why do I plan to use AWS CDK instead of CloudFormation?</a></li>
 <li><a href="#how-do-i-make-sure-the-code-quality">How do I make sure the code quality?</a></li>
@@ -244,7 +247,51 @@ The server needs to handle the storgae of data and workflows efficientyly, but c
 <img src="/images/flowchart2.png" alt="flow chart in step fucntion2"></p>
 <h1 id="high-level-design">High-level Design</h1>
 <p><img src="/images/lowlevel.png" alt="highlevel_design"></p>
+<h1 id="challengest">Challengest</h1>
+<ol>
+<li>
+<p><strong>situation:</strong> 项目是将一个平台迁移到AWS环境。这个平台原先运行在Amazon的内部系统“Brazil”上，需要进行改造以适应AWS的架构。特别地，这个迁移涉及到使用步骤函数组合Lambda函数来实现。</p>
+</li>
+<li>
+<p><strong>Task:</strong> 需要将原来的平台解耦成多个lambda函数，但lambda函数最多只能运行15分钟。这个任务确保了因为lambda的时间限制而不会导致迁移失败。如果lambda因为达到15分钟的限制而终止，将会引发数据处理不完整，可能导致数据丢失或工作流程中断。</p>
+</li>
+<li>
+<p><strong>Action:</strong></p>
+<ul>
+<li>将原来逻辑中的重试次数调整为3次。</li>
+<li>将平台细分成多个小单元，并通过多次测试不同场景，确保每个单元能够在5到15分钟内完成。</li>
+<li>为了处理边缘情况，在每个单元运行到14分钟时加入逻辑检测。如果已经运行了14分钟，意味着可能由于某些原因无法继续传输数据。此时，我会将当前产生的数据存储到AWS S3桶中，并回滚工作流程，以防止因超时导致的整体失败。</li>
+</ul>
+</li>
+<li>
+<p><strong>Result:</strong>
+成功解决了Lambda函数的时间限制问题，确保了工作流程的顺利执行。这不仅提高了迁移过程的效率，还保障了数据的安全性和完整性。</p>
+</li>
+</ol>
 <h1 id="details">Details</h1>
+<h2 id="decouple的好处">decouple的好处</h2>
+<ul>
+<li><strong>增加可维护性</strong>：可以单独维护和更新各个部分，提高了整体系统的可靠性和灵活性。</li>
+<li><strong>增强可靠性</strong>: 单个函数出现问题不会影响整个系统，从而提高了整体应用的稳定性。</li>
+<li><strong>提升灵活性</strong>: 独立的函数可以更快地开发和部署，便于快速响应业务需求的变化。</li>
+<li><strong>优化性能</strong>: 函数可以并行运行，提高系统的响应速度和处理能力。</li>
+<li><strong>降低成本</strong>: 按需使用计算资源，只为实际使用的资源付费，避免了资源的闲置浪费。</li>
+<li><strong>精简测试</strong>: 单个函数更容易进行单元测试和集成测试，提高了代码质量。</li>
+<li><strong>容错和恢复</strong>: 出现故障时，只需要重新部署或修复有问题的部分，而不是整个应用。</li>
+</ul>
+<blockquote>
+<p>lambda的时间控制问题 → 在写unit test的测试过程中，我需要严格的保证每一个lambda的运行时间，lambda的运行时间只能在15分钟内，所以我需要尽可能的在每一个功能单元包含多的但是又不能超过15分钟</p>
+</blockquote>
+<h2 id="step-function的好处">Step function的好处</h2>
+<ul>
+<li><strong>工作流自动化</strong>: 它自动执行工作流中的各个步骤，减少了手动干预的需要。</li>
+<li><strong>可视化管理</strong>: 提供一个直观的界面，让您可以看到工作流的各个步骤和它们的当前状态。</li>
+<li><strong>灵活的集成</strong>: 可以轻松地与其他AWS服务集成，如Lambda、DynamoDB、S3等。</li>
+<li><strong>按使用付费</strong>: 按照工作流的执行次数和状态转换次数付费，无需预先投资。</li>
+</ul>
+<blockquote>
+<p>因为我是通过step function串联了我的lambda，所以lambda之间的参数的传递成为一个难点。因为lambda是可以有input和output的，但只能接受JSON格式。所以这里有一个序列化(Serializtion) 和反序列化(Deserialization)的步骤。</p>
+</blockquote>
 <h2 id="why-stepfunction-rather-than-ec2">Why Stepfunction rather than EC2?</h2>
 <ol>
 <li>自动扩展和容错：Step Functions 自动处理扩展和容错，确保工作流的执行即使在高负载下也能保持高可用性。相比之下，使用 EC2 实例通常需要手动设置自动扩展策略和容错机制。
